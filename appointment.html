@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запис на прийом - LOLA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Baumans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="address-dropdown">
+                    <span class="address">Адреси клінік</span>
+                    <div class="dropdown-content">
+                        <div class="clinic-address">
+                            <h4>Клініка на Оболоні</h4>
+                            <p>вул. Героїв Сталінграда, 24</p>
+                        </div>
+                        <div class="clinic-address">
+                            <h4>Клініка на Печерську</h4>
+                            <p>вул. Лесі Українки, 15</p>
+                        </div>
+                        <div class="clinic-address">
+                            <h4>Клініка на Позняках</h4>
+                            <p>просп. Петра Григоренка, 39</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="working-hours">9:00 - 22:00, без вихідних</span>
+            </div>
+        </div>
+        <nav class="main-nav container">
+            <a href="index.html" class="logo" id="logo">
+                <img src="images/logo.png" alt="LOLA" class="logo-img">
+                <span class="logo-text">LOLA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">ПОСЛУГИ І ВАРТІСТЬ</a></li>
+                <li><a href="index.html#team">НАША КОМАНДА</a></li>
+                <li><a href="index.html#contacts">КОНТАКТИ</a></li>
+            </ul>
+            <a href="tel:+380931231231" class="hotline-button">ГАРЯЧА ЛІНІЯ</a>
+        </nav>
+    </header>
+
+    <section class="appointment-section">
+        <div class="container">
+            <h1 class="appointment-title">Запис на прийом</h1>
+            <form class="appointment-form" id="appointmentForm">
+                <div class="form-group">
+                    <label for="petOwner">Ваше ім'я*</label>
+                    <input type="text" id="petOwner" name="petOwner" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Номер телефону*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="petName">Кличка тварини*</label>
+                    <input type="text" id="petName" name="petName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="petType">Вид тварини*</label>
+                    <select id="petType" name="petType" required>
+                        <option value="">Оберіть вид тварини</option>
+                        <option value="dog">Собака</option>
+                        <option value="cat">Кіт</option>
+                        <option value="bird">Птах</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="clinic">Оберіть клініку*</label>
+                    <select id="clinic" name="clinic" required>
+                        <option value="">Оберіть клініку</option>
+                        <option value="obolon">Клініка на Оболоні</option>
+                        <option value="pechersk">Клініка на Печерську</option>
+                        <option value="poznyaky">Клініка на Позняках</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Бажана дата візиту*</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Бажаний час візиту*</label>
+                    <input type="time" id="time" name="time" min="09:00" max="21:00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Причина звернення*</label>
+                    <textarea id="reason" name="reason" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        Я погоджуюсь на обробку персональних даних
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-button">Записатись на прийом</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Тут можна додати логіку відправки форми на сервер
+            alert('Дякуємо за запис! Ми зв\'яжемося з вами найближчим часом для підтвердження.');
+        });
+
+        // Функція для прокрутки вгору або переходу на головну при кліку на логотип
+        document.getElementById('logo').addEventListener('click', function(e) {
+            // Якщо ми на сторінці appointment.html, перенаправляємо на головну
+            if (window.location.pathname.endsWith('appointment.html')) {
+                e.preventDefault(); // Запобігаємо стандартній дії посилання
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 
